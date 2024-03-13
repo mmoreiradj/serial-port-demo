@@ -1,0 +1,22 @@
+[package]
+name = "serial-port-demo"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "agent"
+path = "src/agent.rs"
+
+[[bin]]
+name = "host"
+path = "src/host.rs"
+
+[dependencies]
+bytes = "1.5.0"
+clap = "3.0.0-beta.5"
+futures = "0.3.30"
+tokio = { version = "1.36.0", features = ["rt-multi-thread", "macros", "signal", "sync"] }
+tokio-serial = "5.4.4"
+tokio-util = { version = "0.7.10", features = ["codec"] }
