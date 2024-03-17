@@ -11,6 +11,9 @@ musl-compile BINARY = "agent":
     -t clux/muslrust \
     cargo build --release --bin {{BINARY}}
 
+create-serial-device:
+  socat -d -d pty,raw,echo=0 pty,raw,echo=0
+
 compile-agent:
   @just musl-compile agent
   cp target/x86_64-unknown-linux-musl/release/agent .
@@ -18,3 +21,7 @@ compile-agent:
 compile-host:
   @just musl-compile host
   cp target/x86_64-unknown-linux-musl/release/host .
+
+compile-all:
+  @just compile-agent
+  @just compile-host

@@ -13,10 +13,10 @@ path = "src/agent.rs"
 name = "host"
 path = "src/host.rs"
 
+[lib]
+name = "api"
+path = "src/api/mod.rs"
+
 [dependencies]
-bytes = "1.5.0"
-clap = "3.0.0-beta.5"
-futures = "0.3.30"
-tokio = { version = "1.36.0", features = ["rt-multi-thread", "macros", "signal", "sync"] }
-tokio-serial = "5.4.4"
-tokio-util = { version = "0.7.10", features = ["codec"] }
+clap = { version = "4.5.2", features = ["derive"] }
+serialport = "4.3.0"
